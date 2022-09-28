@@ -4,6 +4,14 @@ A website which helps you to learn about triangles.
 
 [Live Link](https://neog-fun-with-triangles.vercel.app/)
 
+## Tech Used
+
+- HTML
+- CSS
+- JS
+
+Following are the sections of our app:
+
 ## Is Triangle?
 
 - Given 3 angles, app calculates whether that angle forms a triangle or not.
