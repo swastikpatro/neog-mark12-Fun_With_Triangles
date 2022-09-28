@@ -87,8 +87,8 @@ function handleContainerClick(e) {
     alertMsg('danger', 'Please fill all input fields 🙏', 1000);
     return;
   }
-  if (side1Input.value < 0 || side2Input.value < 0 || side3Input.value < 0) {
-    alertMsg('danger', "Angle can't be negative ❌", 1000);
+  if (side1Input.value <= 0 || side2Input.value <= 0 || side3Input.value <= 0) {
+    alertMsg('danger', "Sides can't be negative or zero ❌", 1000);
     return;
   }
 
