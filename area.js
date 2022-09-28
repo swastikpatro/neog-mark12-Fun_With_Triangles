@@ -1,4 +1,4 @@
-console.log('Hare Krishna');
+// console.log('Hare Krishna');
 
 const side1Input = document.querySelector('#sideOne-input');
 const side2Input = document.querySelector('#sideTwo-input');
@@ -6,11 +6,6 @@ const side3Input = document.querySelector('#sideThree-input');
 const btnContainer = document.querySelector('.btn-container');
 const output = document.querySelector('.output-section');
 const alertText = document.querySelector('.alert');
-
-// lucky-btn
-// const triangleContainer = document.createElement("section");
-// triangleContainer.classList.add("triangle-container");
-// const triangleInnerDiv = document.createElement("div");
 
 function alertMsg(type, msg, ms) {
   const tID = setInterval(() => {

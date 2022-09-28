@@ -1,4 +1,4 @@
-console.log('Hare Krishna');
+// console.log('Hare Krishna');
 
 const baseInput = document.querySelector('#base-input');
 const heightInput = document.querySelector('#height-input');

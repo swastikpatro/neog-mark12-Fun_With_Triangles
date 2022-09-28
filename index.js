@@ -1,4 +1,4 @@
-console.log('Hare Krishna');
+// console.log('Hare Krishna');
 
 const angle1Input = document.querySelector('#angleOne-input');
 const angle2Input = document.querySelector('#angleTwo-input');
