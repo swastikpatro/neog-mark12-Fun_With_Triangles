@@ -2,13 +2,13 @@
 
 A website which helps you to learn about triangles.
 
-[Live Link]()
+[Live Link](https://neog-fun-with-triangles.vercel.app/)
 
 ## Is Triangle?
 
 - Given 3 angles, app calculates whether that angle forms a triangle or not.
 - Alerts if
-  - - Any input is empty OR any input is -ve.
+  - Any input is empty OR any input is -ve.
   - "Done" alert if output is shown.
   - "Cleared" alert if you click clear button.
 - Clicking Clear button empties all input fields,empties the output.
