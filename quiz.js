@@ -159,7 +159,10 @@ window.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', handleSubmit);
 });
 
-document.querySelectorAll('.btn')[1].addEventListener('click', handleClear);
+[...document.querySelectorAll('.btn')][1].addEventListener(
+  'click',
+  handleClear
+);
 
 const header = document.querySelector('.header');
 

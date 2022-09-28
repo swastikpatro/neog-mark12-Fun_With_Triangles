@@ -112,7 +112,7 @@ function handleContainerClick(e) {
 
 btnContainer.addEventListener('click', handleContainerClick);
 
-document.querySelectorAll('input').forEach((singleInput) => {
+[...document.querySelectorAll('input')].forEach((singleInput) => {
   singleInput.addEventListener('click', () => {
     output.innerText = '';
   });
