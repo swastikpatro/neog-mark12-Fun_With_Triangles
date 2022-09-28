@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- favicon -->
+    <!-- <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" /> -->
+    <title>Fun with Triangles || Hypotenuse</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./hypotenuse.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-center">
+        <span class="heading">Fun With Triangles △</span>
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <a href="./index.html" class="nav-link">is triangle?</a>
+            </li>
+            <li><a href="./quiz.html" class="nav-link">quiz</a></li>
+            <li>
+              <a href="./hypotenuse.html" class="nav-link active-link"
+                >hypotenuse</a
+              >
+            </li>
+            <li><a href="./area.html" class="nav-link">area of triangle</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="alert"></div>
+    </header>
+
+    <div class="content">
+      <h3>Hypotenuse formula: √(base² + height²)</h3>
+      <p>
+        Enter the base and height of a triangle, we'll calculate the hypotenuse
+        for you.
+      </p>
+    </div>
+
+    <form name="form">
+      <h3>Calculate Hypotenuse of a triangle</h3>
+      <div class="inputs">
+        <div class="base">
+          <label for="base-input">Enter base value (a) =</label>
+          <input type="number" name="base-input" id="base-input" />
+        </div>
+        <div class="height">
+          <label for="height-input">Enter height value (b) =</label>
+
+          <input type="number" name="height-input" id="height-input" />
+        </div>
+      </div>
+      <div class="btn-container">
+        <button class="btn" data-btn="calculate">Calculate</button>
+        <button class="btn" data-btn="clear">Clear</button>
+      </div>
+
+      <div class="output-section hypo-output"></div>
+    </form>
+
+    <!-- footer -->
+    <footer class="footer">
+      <h2>social links</h2>
+      <ul class="footer-links">
+        <li>
+          <a href="https://github.com/swastikpatro" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/Swastik2001" target="_blank"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/swastik-patro-2a54bb19b/"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://swastik-patro-portfolio.netlify.app/" target="_blank"
+            ><i class="fa-solid fa-laptop-file"></i
+          ></a>
+        </li>
+      </ul>
+    </footer>
+    <!-- end of footer -->
+  </body>
+</html>
