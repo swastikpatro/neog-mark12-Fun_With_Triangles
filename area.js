@@ -5,31 +5,23 @@ const side2Input = document.querySelector('#sideTwo-input');
 const side3Input = document.querySelector('#sideThree-input');
 const btnContainer = document.querySelector('.btn-container');
 const output = document.querySelector('.output-section');
-const alertText = document.querySelector('.alert');
-
-function alertMsg(type, msg, ms) {
-  const tID = setInterval(() => {
-    alertText.innerText = msg;
-    alertText.classList.add(`alert-${type}`);
-    alertText.classList.add('show-alert');
-  }, 0);
-
-  setTimeout(() => {
-    clearInterval(tID);
-    alertText.classList.remove(`alert-${type}`);
-    alertText.classList.remove('show-alert');
-  }, ms);
-}
 
 function squared(side) {
   return side ** 2;
 }
 
-function displayOutput(msg) {
-  const condn = msg.includes('Heron');
+function displayOutput(msg, condn) {
   output.innerHTML = `
   <span style="color: ${condn ? 'green' : 'red'}">
     ${msg}
+  </span>
+  `;
+}
+
+function displayErrorMsgToUser(text) {
+  output.innerHTML = `
+  <span style="color: red">
+    ${text}
   </span>
   `;
 }
@@ -52,7 +44,9 @@ function isTriangle(a, b, c) {
   const angle32Gamma = calculateAngleBetn(a, b, c);
   const angle23Beta = calculateAngleBetn(c, a, b);
 
-  if (Math.floor(angle13Alpha + angle32Gamma + angle23Beta) === 180) {
+  const sumOfAllAngles = Math.floor(angle13Alpha + angle32Gamma + angle23Beta);
+  // console.log(angle13Alpha + angle32Gamma + angle23Beta); //180.0000000003
+  if (sumOfAllAngles === 180) {
     return true;
   } else {
     return false;
@@ -74,16 +68,15 @@ function handleContainerClick(e) {
     side2Input.value = '';
     side3Input.value = '';
     output.innerText = '';
-    alertMsg('success', 'Cleared', 1000);
     return;
   }
 
   if (!(side1Input.value && side2Input.value && side3Input.value)) {
-    alertMsg('danger', 'Please fill all input fields 🙏', 1000);
+    displayErrorMsgToUser('Please fill all input fields 🙏');
     return;
   }
   if (side1Input.value <= 0 || side2Input.value <= 0 || side3Input.value <= 0) {
-    alertMsg('danger', "Sides can't be negative or zero ❌", 1000);
+    displayErrorMsgToUser("Sides can't be negative or zero ❌");
     return;
   }
 
@@ -96,18 +89,19 @@ function handleContainerClick(e) {
   ).toFixed(2);
 
   // console.log(parseInt(area));
+  // if sides are 10, 12, 22, then we get 0.00 sq.units, following to handle that
   if (!isTriangle(side1, side2, side3) || parseInt(area) === 0) {
     displayOutput(
-      `Sides ${side1}, ${side2} & ${side3} doesn't form a triangle after using Law of Cosines`
+      `Sides ${side1}, ${side2} & ${side3} doesn't form a triangle after using Law of Cosines`,
+      false
     );
     return;
   }
 
   displayOutput(
-    `Sides ${side1}, ${side2} & ${side3} forms a triangle and using Heron's Formula, the area is ${area} sq.units`
+    `Sides ${side1}, ${side2} & ${side3} forms a triangle and using Heron's Formula, the area is ${area} sq.units`,
+    true
   );
-
-  alertMsg('success', 'Done ✅', 1000);
 }
 
 btnContainer.addEventListener('click', handleContainerClick);
