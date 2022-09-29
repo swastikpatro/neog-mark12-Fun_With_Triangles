@@ -36,7 +36,6 @@ function handleContainerClick(e) {
     angle2Input.value = '';
     angle3Input.value = '';
     output.innerText = '';
-    alertMsg('success', 'Cleared', 1000);
     return;
   }
 
