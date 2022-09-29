@@ -5,33 +5,12 @@ const angle2Input = document.querySelector('#angleTwo-input');
 const angle3Input = document.querySelector('#angleThree-input');
 const btnContainer = document.querySelector('.btn-container');
 const output = document.querySelector('.output-section');
-const alertText = document.querySelector('.alert');
-
-// lucky-btn
-// const triangleContainer = document.createElement("section");
-// triangleContainer.classList.add("triangle-container");
-// const triangleInnerDiv = document.createElement("div");
-
-function alertMsg(type, msg, ms) {
-  const tID = setInterval(() => {
-    alertText.innerText = msg;
-    alertText.classList.add(`alert-${type}`);
-    alertText.classList.add('show-alert');
-  }, 0);
-
-  setTimeout(() => {
-    clearInterval(tID);
-    alertText.classList.remove(`alert-${type}`);
-    alertText.classList.remove('show-alert');
-  }, ms);
-}
 
 function angleLessThan360OrNot(angle) {
   return angle < 360 ? angle : angle % 360;
 }
 
-function displayOutput(msg) {
-  const condn = msg.includes('Congratulations');
+function displayOutput(msg, condn) {
   output.innerHTML = `
   <span style="color: ${condn ? 'green' : 'red'}">
     ${msg}
@@ -49,9 +28,9 @@ function handleContainerClick(e) {
   const angle1 = angle1Input.valueAsNumber;
   const angle2 = angle2Input.valueAsNumber;
   const angle3 = angle3Input.valueAsNumber;
-  const angle1Updated = angleLessThan360OrNot(angle1);
-  const angle2Updated = angleLessThan360OrNot(angle2);
-  const angle3Updated = angleLessThan360OrNot(angle3);
+  const referenceAngle1 = angleLessThan360OrNot(angle1);
+  const referenceAngle2 = angleLessThan360OrNot(angle2);
+  const referenceAngle3 = angleLessThan360OrNot(angle3);
   if (btnClicked === 'clear') {
     angle1Input.value = '';
     angle2Input.value = '';
@@ -62,37 +41,41 @@ function handleContainerClick(e) {
   }
 
   if (!(angle1Input.value && angle2Input.value && angle3Input.value)) {
-    alertMsg('danger', 'Please fill all input fields 🙏', 1000);
+    displayOutput('Please fill all input fields 🙏', false);
     return;
   }
   if (angle1Input.value < 0 || angle2Input.value < 0 || angle3Input.value < 0) {
-    alertMsg('danger', "Angle can't be negative ❌", 1000);
+    displayOutput("Angle can't be negative ❌", false);
     return;
   }
 
-  const sumOfAllAngles = angle1Updated + angle2Updated + angle3Updated;
+  const sumOfAllAngles = referenceAngle1 + referenceAngle2 + referenceAngle3;
   const complementary = sumOfAllAngles === 180;
   const shownAngles = [angle1, angle2, angle3]
     .map((item) => {
       return `${item}°`;
     })
     .join(', ');
-  const shownAnglesUpdated = [angle1Updated, angle2Updated, angle3Updated]
+  const shownReferenceAngles = [
+    referenceAngle1,
+    referenceAngle2,
+    referenceAngle3,
+  ]
     .map((item) => {
       return `${item}°`;
     })
     .join(', ');
   if (complementary) {
     displayOutput(
-      `Congratulations, your angles ${shownAngles} i.e. (${shownAnglesUpdated}) forms a triangle.`
+      `Congratulations, your angles ${shownAngles} i.e. (${shownReferenceAngles}) forms a triangle.`,
+      true
     );
   } else {
     displayOutput(
-      `Oops, your angles ${shownAngles} i.e. (${shownAnglesUpdated}) can't form a triangle.`
+      `Oops, your angles ${shownAngles} i.e. (${shownReferenceAngles}) doesn't form a triangle.`,
+      false
     );
   }
-
-  alertMsg('success', 'Done ✅', 1000);
 }
 
 btnContainer.addEventListener('click', handleContainerClick);
