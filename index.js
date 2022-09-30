@@ -43,8 +43,12 @@ function handleContainerClick(e) {
     displayOutput('Please fill all input fields 🙏', false);
     return;
   }
-  if (angle1Input.value < 0 || angle2Input.value < 0 || angle3Input.value < 0) {
-    displayOutput("Angle can't be negative ❌", false);
+  if (
+    angle1Input.value <= 0 ||
+    angle2Input.value <= 0 ||
+    angle3Input.value <= 0
+  ) {
+    displayOutput("Angle of a 🔺 can't be zero or negative ❌", false);
     return;
   }
 
