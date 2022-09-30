@@ -60,23 +60,8 @@ const data = [
   },
 ];
 
-function alertMsg(type, msg, ms) {
-  const tID = setInterval(() => {
-    alertText.innerText = msg;
-    alertText.classList.add(`alert-${type}`);
-    alertText.classList.add('show-alert');
-  }, 0);
-
-  setTimeout(() => {
-    clearInterval(tID);
-    alertText.classList.remove(`alert-${type}`);
-    alertText.classList.remove('show-alert');
-  }, ms);
-}
-
 const quizCenter = document.querySelector('.questions-center');
 const output = document.querySelector('.output-section');
-const alertText = document.querySelector('.alert');
 
 function charToNum(char) {
   return char.toUpperCase().charCodeAt(0) - 65;
@@ -140,8 +125,6 @@ function handleSubmit(e) {
     score > 5 ? 'green' : 'red'
   }">${score}</span> / ${data.length} ${score > 5 ? '🎉' : '😟'}
   `;
-
-  alertMsg('success', 'Done ✅', 1000);
 }
 
 function handleClear() {
@@ -150,7 +133,6 @@ function handleClear() {
     input.checked = false;
   });
   output.innerHTML = '';
-  alertMsg('success', 'Cleared', 1000);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
