@@ -36,7 +36,7 @@ function calculateAngleBetn(sideFacedAngle, sideOnRight, remainingSide) {
     ) *
       180) /
     Math.PI;
-  return angle;
+  return angle || 0; // if angle is NaN returns 0
 }
 
 function isTriangle(a, b, c) {
@@ -44,7 +44,7 @@ function isTriangle(a, b, c) {
   const angle32Gamma = calculateAngleBetn(a, b, c);
   const angle23Beta = calculateAngleBetn(c, a, b);
 
-  const sumOfAllAngles = Math.floor(angle13Alpha + angle32Gamma + angle23Beta);
+  const sumOfAllAngles = Math.trunc(angle13Alpha + angle32Gamma + angle23Beta);
   // console.log(angle13Alpha + angle32Gamma + angle23Beta); //180.0000000003
   if (sumOfAllAngles === 180) {
     return true;
