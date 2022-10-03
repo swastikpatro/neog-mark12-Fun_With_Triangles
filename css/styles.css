@@ -779,6 +779,7 @@ label {
 .quiz-output {
   width: 60%;
   text-align: center;
+  height: 2.5rem;
 }
 
 .quiz-footer {
@@ -787,22 +788,27 @@ label {
 
 .clear-btn {
   position: absolute;
-  bottom: 9.4rem;
+  bottom: 7.9rem;
   right: 25%;
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 786px) {
+  .quiz-output {
+    padding-top: 0.5rem;
+    height: 2.75rem;
+  }
   .quiz-footer {
     position: relative;
   }
   .clear-btn {
-    bottom: 10.8rem;
+    bottom: 9.7rem;
     right: 35%;
   }
 }
 @media screen and (min-width: 1280px) {
   .clear-btn {
-    bottom: 11rem;
+    bottom: 9.5rem;
     right: 40%;
   }
 }
