@@ -39,7 +39,7 @@ function handleContainerClick(e) {
     return;
   }
   if (baseInput.value <= 0 || heightInput.value <= 0) {
-    displayErrorMsgToUser("Values can't be zero or less than zero ❌");
+    displayErrorMsgToUser("Values can't be zero or negative ❌");
     return;
   }
 
